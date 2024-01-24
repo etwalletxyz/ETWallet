@@ -94,24 +94,24 @@ const setTokenAndEthBalance = function ({
   };
 
   const currentProvider = rootState.wallet.web3.eth.currentProvider;
-    // Prevent the 'Invalid return values' error
-    // when accessing new network on MetaMask
-    if (
-      rootState.wallet.identifier === WALLET_TYPES.WEB3_WALLET &&
-      network.chainId !== parseInt(currentProvider.chainId)
-    ) {
-      return;
+  // Prevent the 'Invalid return values' error
+  // when accessing new network on MetaMask
+  if (
+    rootState.wallet.identifier === WALLET_TYPES.WEB3_WALLET &&
+    network.chainId !== parseInt(currentProvider.chainId)
+  ) {
+    return;
+  }
+  if (
+    rootState.wallet.identifier !== WALLET_TYPES.WEB3_WALLET &&
+    currentProvider.connection
+  ) {
+    const currentProviderUrl = currentProvider.connection.url;
+    if (network.url !== currentProviderUrl) {
+      dispatch('wallet/setWeb3Instance', undefined, { root: true });
     }
-    if (
-      rootState.wallet.identifier !== WALLET_TYPES.WEB3_WALLET &&
-      currentProvider.connection
-    ) {
-      const currentProviderUrl = currentProvider.connection.url;
-      if (network.url !== currentProviderUrl) {
-        dispatch('wallet/setWeb3Instance', undefined, { root: true });
-      }
-    }
-    _getBalance();
+  }
+  _getBalance();
 };
 
 const storeEIP6963Wallet = function ({ commit }, params) {

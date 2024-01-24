@@ -17,8 +17,8 @@
     <div class="py-6 bgWalletBlock">
       <div class="px-6">
         <div>
-          Something went wrong, would you like to inform to #ETWalletTeam about this
-          error?
+          Something went wrong, would you like to inform to ETWalletTeam about
+          this error?
         </div>
         <v-row class="mt-4 mb-2">
           <v-col>

@@ -15,18 +15,14 @@
       <template #rightColItem0>
         <div class="mew-body">
           {{ feeFormatted }}
-          <span class="greyPrimary--text"
-            >{{ network.currencyName }}/</span
-          >
+          <span class="greyPrimary--text">{{ network.currencyName }}/</span>
           ~{{ txFeeUsd }}
         </div>
       </template>
       <template #rightColItem1>
         <div class="mew-body">
           {{ totalFee }}
-          <span class="greyPrimary--text"
-            >{{ network.currencyName }}/</span
-          >
+          <span class="greyPrimary--text">{{ network.currencyName }}/</span>
           ~{{ totalFeeUSD }}
         </div>
       </template>

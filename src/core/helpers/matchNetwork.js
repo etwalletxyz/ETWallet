@@ -49,21 +49,25 @@ export default async (
             'There is a pending request to MetaMask, make your selection before continuing';
         } else if (message.includes('rejected')) {
           return false;
-        } else if (message.includes("wallet_addEthereumChain")) {
+        } else if (message.includes('wallet_addEthereumChain')) {
           const c = chainMap[chainId];
           if (!c) {
             toastMsg = 'Chain with ChainID ' + chainId + ' not found.';
           } else {
             const result = await provider.request({
               method: 'wallet_addEthereumChain',
-              params: [{
-                "chainId": toHex(chainId),
-                "chainName": c.name,
-                "rpcUrls": c.rpc,
-                "iconUrls": [c.logoURI],
-                "nativeCurrency": c.nativeCurrency,
-                "blockExplorerUrls": c.explorers.map(e => typeof e === 'string' ? e : e.url)
-              }]
+              params: [
+                {
+                  chainId: toHex(chainId),
+                  chainName: c.name,
+                  rpcUrls: c.rpc,
+                  iconUrls: [c.logoURI],
+                  nativeCurrency: c.nativeCurrency,
+                  blockExplorerUrls: c.explorers.map(e =>
+                    typeof e === 'string' ? e : e.url
+                  )
+                }
+              ]
             });
             if (result === null) {
               return true;

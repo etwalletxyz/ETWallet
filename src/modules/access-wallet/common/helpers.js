@@ -18,8 +18,7 @@ const getWalletFromPrivKeyFile = (jsonfile, password) => {
     return Wallet.fromV3(jsonfile, password, true);
   else if (jsonfile.hash != null)
     return Wallet.ThirdParty.fromEtherWallet(jsonfile, password);
-  else if (jsonfile.publisher == 'ETWallet')
-    return fromETWallet(jsonfile);
+  else if (jsonfile.publisher == 'ETWallet') return fromETWallet(jsonfile);
   throw new Error('Invalid Wallet file');
 };
 
@@ -51,8 +50,7 @@ const walletRequirePass = ethjson => {
   else if (ethjson.Crypto != null || ethjson.crypto != null) return true;
   else if (ethjson.hash != null && ethjson.locked) return true;
   else if (ethjson.hash != null && !ethjson.locked) return false;
-  else if (ethjson.publisher == 'ETWallet' && !ethjson.encrypted)
-    return false;
+  else if (ethjson.publisher == 'ETWallet' && !ethjson.encrypted) return false;
   return true;
 };
 
