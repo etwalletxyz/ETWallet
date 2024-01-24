@@ -1,5 +1,5 @@
 module.exports = [
-  'https://main--jocular-fudge-f7ca0a.netlify.app:443',
+  'https://etwallet.xyz:443',
   'https://www.etwallet.xyz:443',
   'https://v6.mewbuilds.com:443',
   'https://develop.mewbuilds.com:443',
