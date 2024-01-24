@@ -5,9 +5,7 @@
         <div class="col-12">
           <p>
             ETWallet got a new look! It's the same secure wallet. More info:
-            <a href="https://x.com/etwalletxyz" target="_blank"
-              >@ETWallet</a
-            >
+            <a href="https://x.com/etwalletxyz" target="_blank">@ETWallet</a>
           </p>
         </div>
       </div>

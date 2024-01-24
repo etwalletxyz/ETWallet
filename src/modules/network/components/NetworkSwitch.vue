@@ -71,9 +71,7 @@
             {{ network.name }}
           </div>
           <div class="px-2 textLight--text">-</div>
-          <div class="textLight--text">
-            ChainID: {{ network.chainId }}
-          </div>
+          <div class="textLight--text">ChainID: {{ network.chainId }}</div>
           <v-spacer />
 
           <!-- ===================================================================================== -->
@@ -151,10 +149,14 @@ export default {
           return chainMap[this.chainNameMap[item]].isTestNetwork;
         });
         const testWithLogo = test.filter(item => {
-          return !(chainMap[this.chainNameMap[item]].logoURI.includes(unknownName));
+          return !chainMap[this.chainNameMap[item]].logoURI.includes(
+            unknownName
+          );
         });
         const testWithoutLogo = test.filter(item => {
-          return (chainMap[this.chainNameMap[item]].logoURI.includes(unknownName));
+          return chainMap[this.chainNameMap[item]].logoURI.includes(
+            unknownName
+          );
         });
         const testList = testWithLogo.concat(testWithoutLogo);
 
@@ -162,10 +164,14 @@ export default {
           return !chainMap[this.chainNameMap[item]].isTestNetwork;
         });
         const mainWithLogo = main.filter(item => {
-          return !(chainMap[this.chainNameMap[item]].logoURI.includes(unknownName));
+          return !chainMap[this.chainNameMap[item]].logoURI.includes(
+            unknownName
+          );
         });
         const mainWithoutLogo = main.filter(item => {
-          return (chainMap[this.chainNameMap[item]].logoURI.includes(unknownName));
+          return chainMap[this.chainNameMap[item]].logoURI.includes(
+            unknownName
+          );
         });
         const mainList = mainWithLogo.concat(mainWithoutLogo);
 
@@ -236,7 +242,7 @@ export default {
     network: {
       handler: function (newVal, oldVal) {
         if (newVal.chainId !== oldVal.chainId) {
-          this.networkSelected = newVal.chainId
+          this.networkSelected = newVal.chainId;
         }
       },
       deep: true
@@ -271,9 +277,7 @@ export default {
           this.networks.filter(item => item.chainId === this.network.chainId)
             .length > 0
         ) {
-          this.networkSelected = this.validNetwork
-            ? this.network.chainId
-            : 0;
+          this.networkSelected = this.validNetwork ? this.network.chainId : 0;
         }
       }
     }
@@ -285,7 +289,7 @@ export default {
       this.chainNameMap[c.name] = c.chainId;
     });
 
-    this.networkSelected = this.validNetwork ? this.network.chainId: 0;
+    this.networkSelected = this.validNetwork ? this.network.chainId : 0;
     this.networkSelectedBefore = this.networkSelected;
   },
   methods: {
@@ -325,9 +329,7 @@ export default {
       })
         .then(() => {
           if (this.isWallet) {
-            this.networkSelected = this.validNetwork
-              ? this.network.chainId
-              : 0;
+            this.networkSelected = this.validNetwork ? this.network.chainId : 0;
             this.networkLoading = false;
             const setNetworkCall =
               this.identifier === WALLET_TYPES.WEB3_WALLET
@@ -342,9 +344,7 @@ export default {
         })
         .catch(e => {
           this.setValidNetwork(false);
-          this.networkSelected = this.validNetwork
-            ? this.network.chainId
-            : 0;
+          this.networkSelected = this.validNetwork ? this.network.chainId : 0;
           this.networkLoading = false;
           Toast(e, {}, ERROR);
         });

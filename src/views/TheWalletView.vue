@@ -323,7 +323,7 @@ export default {
           method: 'eth_chainId'
         });
         const foundNetwork = chainMap[parseInt(networkId)];
-        
+
         if (this.selectedEIP6963Provider) {
           try {
             if (foundNetwork) {
@@ -335,17 +335,13 @@ export default {
               this.setTokensAndBalance();
               this.setValidNetwork(true);
               this.$emit('newNetwork');
-              Toast(
-                `Switched network to: ${foundNetwork.name}`,
-                {},
-                SUCCESS
-              );
+              Toast(`Switched network to: ${foundNetwork.name}`, {}, SUCCESS);
             } else {
               this.setValidNetwork(false);
               Toast("Current wallet's network is unsupported", {}, ERROR);
             }
           } catch (er) {
-            console.log("Error in switch network");
+            console.log('Error in switch network');
             console.dir(er);
             Toast('There was an error switching networks', {}, ERROR);
           }

@@ -1,4 +1,3 @@
-
 /**
   * Global Classes
   */
@@ -62,7 +61,7 @@ a {
   border: 1px solid var(--v-inputBorder-base) !important;
   opacity: 1 !important;
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
     top: 100%;
@@ -76,7 +75,7 @@ a {
     border-top: 10px solid var(--v-inputBorder-base);
   }
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     top: 100%;
@@ -90,4 +89,3 @@ a {
     border-top: 8px solid var(--v-white-base);
   }
 }
-

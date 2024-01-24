@@ -20,7 +20,6 @@
     "lint:code": "vue-cli-service lint --fix",
     "lint:md": "remark . -o",
     "lint:styles": "prettier --write 'src/**/*.{scss,css}' && stylelint 'src/**/*.{scss,css}' --fix",
-    "lint:tests": "eslint --fix tests/",
     "preinstall": "find node_modules -name \".git\" -exec rm -rf {} \\; || true && bash ./scripts/checklockconflicts.sh && npx npm-force-resolutions",
     "start": "npm run dev",
     "start:history": "ROUTER_MODE=history npm run dev",

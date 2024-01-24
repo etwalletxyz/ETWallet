@@ -13,17 +13,17 @@
       <template #dialogBody>
         <div class="mew-heading-1 mb-2">How are fees determined?</div>
         <div class="mt-6 textLight--text">
-          Transaction fees are charged by Ethereum miners, not ETWallet. We can't
-          influence them and we don't receive any part of the transaction fees
-          that you pay.
+          Transaction fees are charged by Ethereum miners, not ETWallet. We
+          can't influence them and we don't receive any part of the transaction
+          fees that you pay.
         </div>
         <div class="mew-heading-1 my-2 mt-6">What should I do?</div>
         <div class="mt-6 textLight--text">
           Good news! You have options! If you’re not in a hurry, you can use the
           “Normal” setting and your transaction will be mined at a later time.
           ETWallet supports Ethereum scaling solutions Polygon and Binance Smart
-          Chain (accessible on ETWallet web and Android). Consider using these chains
-          to avoid congestion and save on fees. Learn how
+          Chain (accessible on ETWallet web and Android). Consider using these
+          chains to avoid congestion and save on fees. Learn how
           <a
             rel="noopener noreferrer"
             target="_blank"

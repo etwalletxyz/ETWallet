@@ -15,7 +15,8 @@ Object.keys(chainList).forEach(key => {
   const chain = chainList[key];
 
   const chainName = chain.name.toLowerCase();
-  chainList[key].isTestNetwork = chainName.includes('test') || chainName.includes('dev');
+  chainList[key].isTestNetwork =
+    chainName.includes('test') || chainName.includes('dev');
   chainList[key].tokens = import(
     `@/_generated/tokens/tokens-${chain.chainId}.json`
   )

@@ -55,7 +55,7 @@ class GivenProvider {
       this.givenProvider = host;
     } else {
       this.givenProvider = {};
-    }    
+    }
     const requestManager = new CustomRequestManager(host);
     if (this.givenProvider.request && !this.givenProvider.request_) {
       this.givenProvider.request_ = this.givenProvider.request;

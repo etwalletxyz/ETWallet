@@ -149,8 +149,9 @@ h6 {
 .bs-wallet-block {
   box-shadow: 0 12px 17px #151d3f08 !important;
 }
+
 .bs-small {
-  box-shadow: 0px 1.6px 6px #00000045 !important;
+  box-shadow: 0 1.6px 6px #00000045 !important;
 }
 
 /* ========== Other ========== */
@@ -201,17 +202,20 @@ h6 {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
-  -webkit-appearance: none;
+  appearance: none;
   margin: 0;
+
   /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-input[type=number] {
-  -moz-appearance: textfield;
+input[type='number'] {
+  appearance: textfield;
+
   /* Firefox */
 }
 
 /* ===== Custom Scrollbar ===== */
+
 /* Firefox */
 * {
   scrollbar-width: auto;
@@ -239,5 +243,5 @@ input[type=number] {
 
 // just for prototype
 .prototype-background {
-  background: linear-gradient(146.16deg, #C549FF 4.03%, #654BFF 94.83%);
+  background: linear-gradient(146.16deg, #c549ff 4.03%, #654bff 94.83%);
 }
