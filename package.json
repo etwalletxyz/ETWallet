@@ -22,13 +22,11 @@
     "lint:styles": "prettier --write 'src/**/*.{scss,css}' && stylelint 'src/**/*.{scss,css}' --fix",
     "lint:tests": "eslint --fix tests/",
     "preinstall": "find node_modules -name \".git\" -exec rm -rf {} \\; || true && bash ./scripts/checklockconflicts.sh && npx npm-force-resolutions",
-    "start": "npm run update:mainlists && npm run dev",
-    "start:history": "npm run update:mainlists && ROUTER_MODE=history npm run dev",
-    "start:offline": "npm run update:mainlists && ROUTER_MODE=hash BUILD=offline npm run dev",
+    "start": "npm run dev",
+    "start:history": "ROUTER_MODE=history npm run dev",
+    "start:offline": "ROUTER_MODE=hash BUILD=offline npm run dev",
     "update": "npm run update:lists",
-    "updateV2": "npm run update:packages && npm run update:lists",
     "update:lists": "node fetchLists/index.js",
-    "update:mainlists": "node fetchLists/fetchMainLists.js",
     "update:packages": "node package-test.js"
   },
   "dependencies": {

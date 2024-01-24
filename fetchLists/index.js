@@ -6,10 +6,19 @@ if (!fs.existsSync(configs.GENERATED_FOLDER_PATH)) {
   fs.mkdirSync(configs.GENERATED_FOLDER_PATH);
 }
 const getFormattedList = async (url, network) => {
-  const response = await fetch(url, {
-    headers: {
-      'User-Agent': v4()
+  let header = {
+    'User-Agent': v4(),
+  };
+  if (url.includes('1inch')) {
+    header = {
+      'User-Agent': v4(),
+      'accept': 'application/json',
+      'Authorization': 'Bearer MjM0gmA70Dcfc0I2s9xpmrG0LwHDEaRW'
     }
+  }
+
+  const response = await fetch(url, {
+    headers: header
   });
   const data = await response.json();
   const tokens = Object.values(data.tokens).reduce((currVal, t) => {
@@ -29,15 +38,15 @@ const getFormattedList = async (url, network) => {
 
 const fetchOneInchLists = async () => {
   const ethTokens = await getFormattedList(
-    'https://partners.mewapi.io/oneinch/v5.2/1/tokens',
+    'https://api.1inch.dev/swap/v5.2/1/tokens',
     1
   );
   const bscTokens = await getFormattedList(
-    'https://partners.mewapi.io/oneinch/v5.2/56/tokens',
+    'https://api.1inch.dev/swap/v5.2/56/tokens',
     56
   );
   const maticTokens = await getFormattedList(
-    'https://partners.mewapi.io/oneinch/v5.2/137/tokens',
+    'https://api.1inch.dev/swap/v5.2/137/tokens',
     137
   );
   return {
