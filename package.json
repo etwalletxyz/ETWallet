@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Client side ethereum wallet",
   "scripts": {
-    "build": "npm run update && vue-cli-service build",
+    "build": "vue-cli-service build",
     "lint": "npm run lint:code && npm run lint:md",
     "apollo": "apollo",
     "apollo:codegen": "npm run apollo:schema && apollo client:codegen src/apollo/global/globalTypes.json --target=json",
@@ -14,7 +14,7 @@
     "build:history:sourcemaps": "ROUTER_MODE=history FULL_SOURCEMAPS=true npm run build",
     "build:offline": "WEBPACK_INTEGRITY=false BUILD=offline npm run build:hash",
     "codecov": "npm run test && codecov",
-    "dev": "npm run update && npm run juststart",
+    "dev": "npm run juststart",
     "juststart": "vue-cli-service serve --watch",
     "juststart:offline": "ROUTER_MODE=hash BUILD=offline vue-cli-service serve --watch",
     "lint:code": "vue-cli-service lint --fix",
@@ -24,7 +24,6 @@
     "start": "npm run dev",
     "start:history": "ROUTER_MODE=history npm run dev",
     "start:offline": "ROUTER_MODE=hash BUILD=offline npm run dev",
-    "update": "npm run update:lists",
     "update:lists": "node fetchLists/index.js",
     "update:packages": "node package-test.js"
   },
